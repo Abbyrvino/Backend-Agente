@@ -1,0 +1,7 @@
+requests
+python-dotenv
+google-generativeai
+reportlab
+openpyxl
+fastapi
+uvicorn[standard]
