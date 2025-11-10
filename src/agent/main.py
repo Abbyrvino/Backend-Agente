@@ -1,7 +1,22 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
-from src.agent.tools import execute_graphql_query, generar_pdf_tool, generar_excel_tool
+from src.agent.tools import (
+    execute_graphql_query,
+    generar_pdf_tool,
+    generar_excel_tool,
+    get_especialidades,
+    get_especialidad_por_id,
+    get_usuarios,
+    get_medicos,
+    get_usuarios_por_especialidad,
+    get_citas,
+    get_citas_por_usuario,
+    get_citas_por_medico,
+    get_diagnosticos_por_paciente,
+    get_triajes_por_paciente,
+    get_horarios_disponibles,
+)
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -15,7 +30,22 @@ genai.configure(api_key=api_key)
 
 # Define the tools that the agent can use.
 # We provide the function directly to the model.
-tools = [execute_graphql_query, generar_pdf_tool, generar_excel_tool]
+tools = [
+    execute_graphql_query,
+    generar_pdf_tool,
+    generar_excel_tool,
+    get_especialidades,
+    get_especialidad_por_id,
+    get_usuarios,
+    get_medicos,
+    get_usuarios_por_especialidad,
+    get_citas,
+    get_citas_por_usuario,
+    get_citas_por_medico,
+    get_diagnosticos_por_paciente,
+    get_triajes_por_paciente,
+    get_horarios_disponibles,
+]
 
 # Create the generative model with the defined tools
 model = genai.GenerativeModel(model_name="gemini-2.5-flash", tools=tools)
